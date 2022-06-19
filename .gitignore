@@ -1,12 +1,12 @@
 # Visual Studio
 .vs
 *.db
-*.lastbuildstate
 *.recipe
 *.log
+*.tlog
 *.filter
 *.suo
-*.user
+
 
 # Project folders
 [Bb]inaries
