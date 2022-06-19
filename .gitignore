@@ -6,6 +6,9 @@
 *.tlog
 *.filter
 *.suo
+*.vcxproj
+*.user
+*.sln
 
 
 # Project folders
