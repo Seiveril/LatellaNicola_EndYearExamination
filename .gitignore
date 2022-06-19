@@ -5,11 +5,8 @@
 *.recipe
 *.log
 *.filter
-*.sln
 *.suo
 *.user
-*.vcxproj.filters
-*.vcxproj
 
 # Project folders
 [Bb]inaries
