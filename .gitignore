@@ -1,0 +1,21 @@
+# Visual Studio
+.vs
+*.db
+*.lastbuildstate
+*.recipe
+*.log
+*.filter
+*.sln
+*.suo
+*.user
+*.vcxproj.filters
+*.vcxproj
+
+# Project folders
+[Bb]inaries
+[Bb]in
+[Dd]ebug
+[Dd]ocs
+[Ii]nt
+[Ii]ntermediate
+
