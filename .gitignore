@@ -4,7 +4,7 @@
 *.recipe
 *.log
 *.tlog
-*.filter
+*.filters
 *.suo
 *.vcxproj
 *.user
