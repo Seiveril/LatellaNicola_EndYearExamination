@@ -22,7 +22,8 @@ workspace "LatellaNicola_EndYearExamination"
         location "%{wks.location}/Sandbox"
 
         --includes all files in source folder
-        includedirs {"%{wks.location}/Sandbox/src","%{wks.location}/Framework/src" }
+        includedirs {"%{wks.location}/Sandbox/src","%{wks.location}/Framework/src"}
+	  libdirs {"%{wks.location}/bin/%{cfg.buildcfg}-%{cfg.architecture}"}
 
 
         postbuildcommands "{COPY} %{wks.location}/ThirdParty/libs/*.dll %{wks.location}/bin/%{cfg.buildcfg}-%{cfg.architecture}"
@@ -34,17 +35,7 @@ workspace "LatellaNicola_EndYearExamination"
         }
 
         links {
-            "sfml-system.lib",
-            "sfml-main.lib",
-            "sfml-window.lib",
-            "sfml-graphics.lib",
-            "sfml-audio.lib",
-		"sfml-system-d.lib",
-            "sfml-main-d.lib",
-            "sfml-window-d.lib",
-            "sfml-graphics-d.lib",
-            "sfml-audio-d.lib"
-
+		"LatellaNicola_Framework.lib"
         }
 
     project "LatellaNicola_Framework"
@@ -52,11 +43,12 @@ workspace "LatellaNicola_EndYearExamination"
    	  language "C++"
 	  cppdialect "C++17"
 	  location "%{wks.location}/Framework"
+	  defines {"DllExport"}
 
         --includes all files in source folder
         includedirs {"%{wks.location}/Framework/src"}
 
-    postbuildcommands "{COPY} %{wks.location}/ThirdParty/libs/*.dll %{wks.location}/bin/%{cfg.buildcfg}-%{cfg.architecture}"
+    	  postbuildcommands "{COPY} %{wks.location}/ThirdParty/libs/*.dll %{wks.location}/bin/%{cfg.buildcfg}-%{cfg.architecture}"
 
         files {
             "%{prj.location}/src/**.h",

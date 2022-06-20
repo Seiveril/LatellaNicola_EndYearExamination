@@ -1,8 +1,9 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "../dllclasses.h"
 #include <vector>
+#include "time_mng.h"
+#include "dllclasses.h"
 #include <SFML/Graphics.hpp>
 
 
@@ -24,14 +25,34 @@ public:
 	/// <returns> TRUE or FALSE</returns>
 	bool isRunning()const;
 
+
+
 	/// <summary>
 	/// Executes application lifecycle.
 	/// </summary>
 	void run();
 
+	/// <summary>
+	/// Calculate the total frames in one seconds by elapsed time
+	/// </summary>
+	/// <returns>total frames</returns>
+	unsigned getFrameRate()const;
+
+private:
+
+	void processWindowEvents();
+	void updateGameTime();
+
 private:
 
 	sf::RenderWindow* myWindow;
+	TimeManager tm;
+	sf::Time lastTime, currentTime;
+	float elapsedTime;
+	float lag;
+	unsigned maxFPS;
+	bool fpsLimitEnabled;
+	float msForFixedUpdate;
 
 };
 
