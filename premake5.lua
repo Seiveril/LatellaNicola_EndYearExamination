@@ -22,7 +22,8 @@ workspace "LatellaNicola_EndYearExamination"
         location "%{wks.location}/Sandbox"
 
         --includes all files in source folder
-        includedirs {"%{wks.location}/Sandbox/src"}
+        includedirs {"%{wks.location}/Sandbox/src","%{wks.location}/Framework/src" }
+
 
         postbuildcommands "{COPY} %{wks.location}/ThirdParty/libs/*.dll %{wks.location}/bin/%{cfg.buildcfg}-%{cfg.architecture}"
 
