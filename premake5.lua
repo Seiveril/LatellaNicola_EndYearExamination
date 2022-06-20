@@ -38,11 +38,11 @@ workspace "LatellaNicola_EndYearExamination"
             "sfml-window.lib",
             "sfml-graphics.lib",
             "sfml-audio.lib",
-		"sfml-system.lib-d",
-            "sfml-main.lib-d",
-            "sfml-window.lib-d",
-            "sfml-graphics.lib-d",
-            "sfml-audio.lib-d"
+		"sfml-system-d.lib",
+            "sfml-main-d.lib",
+            "sfml-window-d.lib",
+            "sfml-graphics-d.lib",
+            "sfml-audio-d.lib"
 
         }
 
@@ -50,12 +50,22 @@ workspace "LatellaNicola_EndYearExamination"
         kind "SharedLib"
    	  language "C++"
 	  cppdialect "C++17"
-	  location "%{wks.location}/Framework/src"}
+	  location "%{wks.location}/Framework"
 
         --includes all files in source folder
-        includedirs {"%{wks.location}/Framework"}
+        includedirs {"%{wks.location}/Framework/src"}
 
     postbuildcommands "{COPY} %{wks.location}/ThirdParty/libs/*.dll %{wks.location}/bin/%{cfg.buildcfg}-%{cfg.architecture}"
+
+        files {
+            "%{prj.location}/src/**.h",
+            "%{prj.location}/src/**.cpp"
+        }
+
+        files {
+            "%{prj.location}/Framework/**.h",
+            "%{prj.location}/Framework/**.cpp"
+        }
 
         links {
             "sfml-system.lib",
@@ -63,10 +73,10 @@ workspace "LatellaNicola_EndYearExamination"
             "sfml-window.lib",
             "sfml-graphics.lib",
             "sfml-audio.lib",
-		"sfml-system.lib-d",
-            "sfml-main.lib-d",
-            "sfml-window.lib-d",
-            "sfml-graphics.lib-d",
-            "sfml-audio.lib-d"
+		"sfml-system-d.lib",
+            "sfml-main-d.lib",
+            "sfml-window-d.lib",
+            "sfml-graphics-d.lib",
+            "sfml-audio-d.lib"
 
         }
