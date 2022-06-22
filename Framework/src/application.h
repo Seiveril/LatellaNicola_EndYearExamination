@@ -4,12 +4,14 @@
 #include <vector>
 #include "time_mng.h"
 #include "dllclasses.h"
+#include "../basegameobj.h"
 #include <SFML/Graphics.hpp>
-
+#include <string>
 
 class DECLSPEC myApplication
 {
 public:
+
 
 	/// <summary>
 	/// Creates application window
@@ -25,23 +27,19 @@ public:
 	/// <returns> TRUE or FALSE</returns>
 	bool isRunning()const;
 
-
-
 	/// <summary>
 	/// Executes application lifecycle.
 	/// </summary>
 	void run();
 
-	/// <summary>
-	/// Calculate the total frames in one seconds by elapsed time
-	/// </summary>
-	/// <returns>total frames</returns>
-	unsigned getFrameRate()const;
+	void draw();
+
+	void addobject(BaseGameObj* gameobj);
 
 private:
 
 	void processWindowEvents();
-	void updateGameTime();
+	void updateTime();
 
 private:
 
@@ -53,7 +51,8 @@ private:
 	unsigned maxFPS;
 	bool fpsLimitEnabled;
 	float msForFixedUpdate;
-
+	sf::Color backgroundColor = sf::Color::Blue;
+	std::vector<BaseGameObj*> allEntities;
 };
 
 #endif

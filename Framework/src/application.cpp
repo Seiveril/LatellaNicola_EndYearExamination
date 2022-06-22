@@ -1,38 +1,54 @@
 #include "application.h"
+#include "../basegameobj.h"
+#include <string>
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+
 void myApplication::createWindow(const float windowWidth, const float windowHeight, const char* title)
 {
-	myWindow = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), title);
+	myWindow = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), title, sf::Style::Close | sf::Style::Resize);
 
 	if (!myWindow)
 	{
-		std::cerr << "Application window initialization failed!\n";
+		std::cerr << "Failed application window initialization \n";
 		return;
 	}
 }
 
 bool myApplication::isRunning()const { return myWindow->isOpen(); }
 
-unsigned myApplication::getFrameRate()const { return 1 / elapsedTime; }
 
 void myApplication::run()
 {
+	BaseGameObj gmobj;
 	lastTime = tm.getCurrentTime();
 	while (myWindow->isOpen())
 	{
-		/*updateGameTime();
-		std::cout << "FPS: " << getFrameRate() << std::endl;
-		processWindowEvents();
-		if (fpsLimitEnabled)
+	sf::Event evnt;
+		while (myWindow->pollEvent(evnt))
 		{
-			sf::sleep(sf::seconds((1.0f / maxFPS)));
-		}*/
+			switch (evnt.type)
+			{
+			case sf::Event::Closed:
+
+				myWindow->close();
+				break;
+
+			case sf::Event::Resized:
+
+				std::cout << "Window size: " << evnt.size.width << "x" << evnt.size.height << std::endl;
+
+				break;
+			}
+
+		}
+		draw();
 	}
 }
 
-void myApplication::updateGameTime()
+
+void myApplication::updateTime()
 {
 	currentTime = tm.getCurrentTime();
 	elapsedTime = TimeManager::calculateElapsedTime(currentTime.asSeconds(), lastTime.asSeconds());
@@ -50,4 +66,22 @@ void myApplication::processWindowEvents()
 			myWindow->close();
 		}
 	}
+}
+
+void myApplication::draw()
+{
+
+	myWindow->clear(backgroundColor);
+
+	//robe a display
+
+	myWindow->display();
+
+}
+
+void myApplication::addobject(BaseGameObj* gameobj)
+{
+
+	allEntities.push_back(gameobj);
+
 }

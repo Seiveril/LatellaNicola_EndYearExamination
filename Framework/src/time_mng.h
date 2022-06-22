@@ -2,9 +2,9 @@
 #define TIME_MANAGER_H
 
 #include <SFML/System.hpp>
-#include "dllclasses.h"
 
-struct DECLSPEC TimeManager
+
+struct TimeManager
 {
 public:
 
