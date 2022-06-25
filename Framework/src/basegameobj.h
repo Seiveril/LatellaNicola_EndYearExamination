@@ -8,10 +8,13 @@ class DECLSPEC BaseGameObj
 {
 
 	friend class myApplication;
+	friend class Controller;
 
 public:
 
 	void setObjScale();
+
+	void update();
 
 	sf::RectangleShape* gameobjectshape;
 

@@ -34,7 +34,11 @@ public:
 
 	void dispatch_events();
 
+	void addObject();
+
 	void render(std::vector<BaseGameObj*> vecgameobjs);
+
+	void updateobjs(std::vector<BaseGameObj*> vecgameobjs);
 
 private:
 

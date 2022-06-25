@@ -9,11 +9,7 @@ void myApplication::createWindow(const float windowWidth, const float windowHeig
 {
 	myWindow = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), title, sf::Style::Close | sf::Style::Resize);
 
-	BaseGameObj* go = new BaseGameObj();
-
-	go->setObjScale();
-
-	vecgameobjs.push_back(go);
+	addObject();
 
 	if (!myWindow)
 	{
@@ -27,13 +23,12 @@ bool myApplication::isRunning()const { return myWindow->isOpen(); }
 
 void myApplication::run()
 {
-	BaseGameObj gmobj;
 	lastTime = tm.getCurrentTime();
 	while (myWindow->isOpen())
 	{
 		render(vecgameobjs);
+		updateobjs(vecgameobjs);
 		dispatch_events();
-
 	}
 }
 
@@ -56,7 +51,6 @@ void myApplication::dispatch_events()
 
 			break;
 		}
-
 	}
 }
 
@@ -68,16 +62,15 @@ void myApplication::updateTime()
 	lastTime = currentTime;
 }
 
-void myApplication::processWindowEvents()
+
+void myApplication::addObject()
 {
-	sf::Event evt{};
-	while (myWindow->pollEvent(evt))
-	{
-		if (evt.type == sf::Event::EventType::Closed)
-		{
-			myWindow->close();
-		}
-	}
+
+	BaseGameObj* go = new BaseGameObj();
+
+	go->setObjScale();
+
+	vecgameobjs.push_back(go);
 }
 
 void myApplication::render(std::vector<BaseGameObj*> vecgameobjs)
@@ -90,4 +83,12 @@ void myApplication::render(std::vector<BaseGameObj*> vecgameobjs)
 	}
 	myWindow->display();
 
+}
+
+void myApplication::updateobjs(std::vector<BaseGameObj*> vecgameobjs)
+{
+	for (auto gameobj : vecgameobjs)
+	{
+		gameobj->update();
+	}
 }
