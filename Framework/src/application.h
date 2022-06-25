@@ -3,8 +3,8 @@
 
 #include <vector>
 #include "time_mng.h"
+#include "basegameobj.h"
 #include "dllclasses.h"
-#include "../basegameobj.h"
 #include <SFML/Graphics.hpp>
 #include <string>
 
@@ -32,9 +32,9 @@ public:
 	/// </summary>
 	void run();
 
-	void draw();
+	void dispatch_events();
 
-	void addobject(BaseGameObj* gameobj);
+	void render(std::vector<BaseGameObj*> vecgameobjs);
 
 private:
 
@@ -43,6 +43,7 @@ private:
 
 private:
 
+	sf::Event evnt;
 	sf::RenderWindow* myWindow;
 	TimeManager tm;
 	sf::Time lastTime, currentTime;
@@ -52,7 +53,7 @@ private:
 	bool fpsLimitEnabled;
 	float msForFixedUpdate;
 	sf::Color backgroundColor = sf::Color::Blue;
-	std::vector<BaseGameObj*> allEntities;
+	std::vector<BaseGameObj*> vecgameobjs;
 };
 
 #endif
