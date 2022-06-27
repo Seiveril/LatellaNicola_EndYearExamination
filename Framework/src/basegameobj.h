@@ -12,7 +12,7 @@ class DECLSPEC BaseGameObj
 
 public:
 
-	void setObj();
+	void setObj(std::string path);
 
 	void movementupdate();
 

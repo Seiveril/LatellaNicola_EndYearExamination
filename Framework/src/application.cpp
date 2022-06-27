@@ -9,8 +9,6 @@ void myApplication::createWindow(const float windowWidth, const float windowHeig
 {
 	myWindow = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), title, sf::Style::Close | sf::Style::Resize);
 
-	addObject();
-
 	if (!myWindow)
 	{
 		std::cerr << "Failed application window initialization \n";
@@ -53,12 +51,12 @@ void myApplication::dispatch_events()
 	}
 }
 
-void myApplication::addObject()
+void myApplication::addObject(std::string path)
 {
 
 	BaseGameObj* go = new BaseGameObj();
-
-	go->setObj();
+	
+	go->setObj(path);
 
 	vecgameobjs.push_back(go);
 }

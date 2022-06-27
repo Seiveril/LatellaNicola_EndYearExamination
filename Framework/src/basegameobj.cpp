@@ -4,13 +4,13 @@
 #include <iostream>
 
 
-void BaseGameObj::setObj()
+void BaseGameObj::setObj(std::string path)
 {
 	gameobjectshape = new sf::RectangleShape(sf::Vector2f(64,64)); 
 	gameobjecttexture = new sf::Texture();
 	//gameobjectshape->setFillColor(sf::Color::White);
 	gameobjecttexture->create(64, 64);
-	if (!gameobjecttexture->loadFromFile("res/textures/player.png"))
+	if (!gameobjecttexture->loadFromFile(path))
 	{
 		std::cout << "Can't load texture" << std::endl;
 

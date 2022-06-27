@@ -33,15 +33,11 @@ public:
 
 	void dispatch_events();
 
-	void addObject();
+	void addObject(std::string path);
 
 	void render(std::vector<BaseGameObj*> vecgameobjs);
 
 	void updateobjs(std::vector<BaseGameObj*> vecgameobjs);
-
-private:
-
-	void updateTime();
 
 private:
 
