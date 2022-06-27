@@ -23,7 +23,6 @@ bool myApplication::isRunning()const { return myWindow->isOpen(); }
 
 void myApplication::run()
 {
-	lastTime = tm.getCurrentTime();
 	while (myWindow->isOpen())
 	{
 		render(vecgameobjs);
@@ -54,21 +53,12 @@ void myApplication::dispatch_events()
 	}
 }
 
-void myApplication::updateTime()
-{
-	currentTime = tm.getCurrentTime();
-	elapsedTime = TimeManager::calculateElapsedTime(currentTime.asSeconds(), lastTime.asSeconds());
-	lag += elapsedTime;
-	lastTime = currentTime;
-}
-
-
 void myApplication::addObject()
 {
 
 	BaseGameObj* go = new BaseGameObj();
 
-	go->setObjScale();
+	go->setObj();
 
 	vecgameobjs.push_back(go);
 }
@@ -76,7 +66,7 @@ void myApplication::addObject()
 void myApplication::render(std::vector<BaseGameObj*> vecgameobjs)
 {
 
-	myWindow->clear(backgroundColor);
+	myWindow->clear(background);
 	for (auto gameobj : vecgameobjs)
 	{
 		myWindow->draw(*gameobj->gameobjectshape);
@@ -89,6 +79,6 @@ void myApplication::updateobjs(std::vector<BaseGameObj*> vecgameobjs)
 {
 	for (auto gameobj : vecgameobjs)
 	{
-		gameobj->update();
+		gameobj->movementupdate();
 	}
 }

@@ -12,12 +12,12 @@ class DECLSPEC BaseGameObj
 
 public:
 
-	void setObjScale();
+	void setObj();
 
-	void update();
+	void movementupdate();
 
 	sf::RectangleShape* gameobjectshape;
-
+	sf::Texture* gameobjecttexture;
 };
 
 #endif

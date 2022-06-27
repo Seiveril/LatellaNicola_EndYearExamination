@@ -96,7 +96,7 @@ public:
     /// \see getTexture, setTextureRect
     ///
     ////////////////////////////////////////////////////////////
-    void setTexture(const Texture& texture, bool resetRect = false);
+    void setTexture(const Texture* texture, bool resetRect = false);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set the sub-rectangle of the texture that the sprite will display

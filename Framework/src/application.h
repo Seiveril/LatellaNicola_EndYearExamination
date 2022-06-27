@@ -2,7 +2,6 @@
 #define APPLICATION_H
 
 #include <vector>
-#include "time_mng.h"
 #include "basegameobj.h"
 #include "dllclasses.h"
 #include <SFML/Graphics.hpp>
@@ -42,21 +41,18 @@ public:
 
 private:
 
-	void processWindowEvents();
 	void updateTime();
 
 private:
 
 	sf::Event evnt;
 	sf::RenderWindow* myWindow;
-	TimeManager tm;
-	sf::Time lastTime, currentTime;
 	float elapsedTime;
 	float lag;
 	unsigned maxFPS;
 	bool fpsLimitEnabled;
 	float msForFixedUpdate;
-	sf::Color backgroundColor = sf::Color::Blue;
+	sf::Color background = sf::Color::Black;
 	std::vector<BaseGameObj*> vecgameobjs;
 };
 

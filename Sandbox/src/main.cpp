@@ -1,5 +1,4 @@
 #include "application.h"
-#include "basegameobj.h"
 
 int main() {
 
