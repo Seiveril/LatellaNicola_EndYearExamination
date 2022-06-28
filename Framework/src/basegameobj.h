@@ -13,9 +13,9 @@ class DECLSPEC BaseGameObj
 
 public:
 
-	void setObj(std::string path);
+	void setObj(std::string path, float Width, float Height);
 
-	void movementupdate();
+	void addMovement();
 
 	sf::RectangleShape* gameobjectshape;
 

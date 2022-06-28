@@ -52,12 +52,12 @@ void myApplication::dispatch_events()
 	}
 }
 
-void myApplication::addObject(std::string path)
+void myApplication::addObject(std::string path, float Width, float Height)
 {
 
 	BaseGameObj* go = new BaseGameObj();
 	
-	go->setObj(path);
+	go->setObj(path, Width, Height);
 
 	vecgameobjs.push_back(go);
 }
@@ -77,6 +77,6 @@ void myApplication::updateobjs(std::vector<BaseGameObj*> vecgameobjs)
 {
 	for (auto gameobj : vecgameobjs)
 	{
-		gameobj->movementupdate();
+		gameobj->addMovement();
 	}
 }

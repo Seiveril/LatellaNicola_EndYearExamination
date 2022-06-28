@@ -33,7 +33,7 @@ public:
 
 	void dispatch_events();
 
-	void addObject(std::string path);
+	void addObject(std::string path, float Width, float Height);
 
 	void render(std::vector<BaseGameObj*> vecgameobjs);
 

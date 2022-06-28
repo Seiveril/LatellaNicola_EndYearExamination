@@ -2,10 +2,9 @@
 
 int main() {
 
-	std::string path = "res/textures/player.png";
 	myApplication* app = new myApplication();
 	app->createWindow(1920, 1080, "Latella End Year Examination");
-	app->addObject(path);
+	app->addObject("res/textures/player.png", 64, 64);
 	app->run();
 	return 0;
 }
