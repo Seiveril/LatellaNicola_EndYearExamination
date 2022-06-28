@@ -1,5 +1,6 @@
 #include "application.h"
 #include "basegameobj.h"
+#include "gotexture.h"
 #include <string>
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -70,7 +71,6 @@ void myApplication::render(std::vector<BaseGameObj*> vecgameobjs)
 		myWindow->draw(*gameobj->gameobjectshape);
 	}
 	myWindow->display();
-
 }
 
 void myApplication::updateobjs(std::vector<BaseGameObj*> vecgameobjs)

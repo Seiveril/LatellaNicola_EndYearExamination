@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "dllclasses.h"
+#include "gotexture.h"
 
 class DECLSPEC BaseGameObj
 {
@@ -17,7 +18,7 @@ public:
 	void movementupdate();
 
 	sf::RectangleShape* gameobjectshape;
-	sf::Texture* gameobjecttexture;
+
 };
 
 #endif
