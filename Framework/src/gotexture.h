@@ -11,7 +11,7 @@ class DECLSPEC Texture
 
 public:
 
-	void createTexture(std::string path);
+	void createTexture(std::string path, float Width, float Height);
 
 	sf::Texture* gameobjecttexture;
 

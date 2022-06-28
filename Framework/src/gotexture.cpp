@@ -3,14 +3,14 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-void Texture::createTexture(std::string path)
+void Texture::createTexture(std::string path, float Width, float Height)
 {
 
 	gameobjecttexture = new sf::Texture();
-	gameobjecttexture->create(64, 64);
+	gameobjecttexture->create(Width, Height);
 	if (!gameobjecttexture->loadFromFile(path))
 	{
-		std::cout << "Can't load texture" << std::endl;
+		std::cout << "Can't load shape texture" << std::endl;
 
 	}
 

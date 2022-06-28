@@ -65,7 +65,7 @@ void myApplication::addObject(std::string path, float Width, float Height)
 void myApplication::render(std::vector<BaseGameObj*> vecgameobjs)
 {
 
-	myWindow->clear(background);
+	myWindow->clear();
 	for (auto gameobj : vecgameobjs)
 	{
 		myWindow->draw(*gameobj->gameobjectshape);

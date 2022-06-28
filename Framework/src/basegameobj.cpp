@@ -9,7 +9,7 @@ void BaseGameObj::setObj(std::string path, float Width, float Height)
 
 	Texture texture;
 	gameobjectshape = new sf::RectangleShape(sf::Vector2f(Width, Height));
-	texture.createTexture(path);
+	texture.createTexture(path, Width, Height);
 	gameobjectshape->setTexture(texture.gameobjecttexture);
 
 }

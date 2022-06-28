@@ -43,12 +43,6 @@ private:
 
 	sf::Event evnt;
 	sf::RenderWindow* myWindow;
-	float elapsedTime;
-	float lag;
-	unsigned maxFPS;
-	bool fpsLimitEnabled;
-	float msForFixedUpdate;
-	sf::Color background = sf::Color::Black;
 	std::vector<BaseGameObj*> vecgameobjs;
 };
 
