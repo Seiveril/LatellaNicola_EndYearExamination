@@ -17,9 +17,6 @@ void myApplication::createWindow(const float windowWidth, const float windowHeig
 	}
 }
 
-bool myApplication::isRunning()const { return myWindow->isOpen(); }
-
-
 void myApplication::run()
 {
 	while (myWindow->isOpen())

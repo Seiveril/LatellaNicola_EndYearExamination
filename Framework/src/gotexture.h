@@ -11,7 +11,15 @@ class DECLSPEC Texture
 
 public:
 
+	/// <summary>
+	/// Creates the texture.
+	/// </summary>
+	/// <param name="path"> is the texture path.</param>
+	/// <param name="Width"> is the texture witdh.</param>
+	/// <param name="Height"> is the texture height.</param>
 	void createTexture(std::string path, float Width, float Height);
+
+private:
 
 	sf::Texture* gameobjecttexture;
 
